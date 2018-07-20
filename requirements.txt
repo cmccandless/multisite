@@ -1,2 +1,2 @@
-argutil==1.1.6
+argutil==1.1.7
 jsonschema==2.6.0
