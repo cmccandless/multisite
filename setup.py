@@ -2,7 +2,7 @@ import setuptools
 
 MAJOR = 0
 MINOR = 1
-PATCH = 2
+PATCH = 3
 VERSION = '{}.{}.{}'.format(MAJOR, MINOR, PATCH)
 
 if __name__ == '__main__':
@@ -31,5 +31,5 @@ if __name__ == '__main__':
                 'multisite = multisite.__main__:main'
             ],
         },
-        install_requires=['argutil']
+        install_requires=['argutil', 'GitPython', 'mistune']
     )
