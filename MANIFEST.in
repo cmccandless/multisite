@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+include multisite/commandline.json
+include multisite/defaults.json

@@ -1,9 +1,5 @@
 import setuptools
-
-MAJOR = 0
-MINOR = 1
-PATCH = 3
-VERSION = '{}.{}.{}'.format(MAJOR, MINOR, PATCH)
+from multisite.__version__ import VERSION
 
 if __name__ == '__main__':
     with open("README.md", "r") as fh:
@@ -31,5 +27,6 @@ if __name__ == '__main__':
                 'multisite = multisite.__main__:main'
             ],
         },
-        install_requires=['argutil', 'GitPython', 'mistune']
+        install_requires=['argutil', 'GitPython', 'mistune'],
+        include_package_data=True
     )
