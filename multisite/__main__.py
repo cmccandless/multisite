@@ -63,4 +63,11 @@ def add_git_site(opts):
 def main():
     parser = argutil.get_parser()
     opts = parser.parse_args()
-    opts.func(opts)
+    if opts.version:
+        import sys
+        dirname = os.path.dirname(__file__)
+        sys.path.insert(0, os.path.dirname(dirname))
+        import setup
+        print(setup.VERSION)
+    else:
+        opts.func(opts)

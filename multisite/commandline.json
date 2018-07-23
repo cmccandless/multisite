@@ -6,6 +6,11 @@
                     "short": "-c",
                     "long": "--config",
                     "help": ["multisite config file"]
+                },
+                {
+                    "long": "--version",
+                    "action": "store_true",
+                    "help": ["print version"]
                 }
             ],
             "templates": {

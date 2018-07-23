@@ -20,5 +20,5 @@ deploy:
     branch: master
     tags: true
     distributions: sdist bdist_wheel
-    repo: cmccandless/safepass
+    repo: cmccandless/multisite
     python: '3.6'
