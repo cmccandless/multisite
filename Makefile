@@ -1,7 +1,10 @@
-all: clean build test upload
+all: clean build test
 
 clean:
 	- rm -rf build/ dist/ *.egg-info/
+
+init:
+	- python3 -m pip install -r requirements.txt
 
 build:
 	- python3 setup.py sdist bdist_wheel

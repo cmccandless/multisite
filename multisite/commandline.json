@@ -1,0 +1,68 @@
+{
+    "modules": {
+        "__main__": {
+            "args": [
+                {
+                    "short": "-c",
+                    "long": "--config",
+                    "help": ["multisite config file"]
+                }
+            ],
+            "templates": {
+                "ADD_TEMPLATE": {
+                    "args": [
+                        {
+                            "short": "-n",
+                            "long": "--name",
+                            "help": ["subsite name"]
+                        },
+                        {
+                            "long": "source_path"
+                        }
+                    ]
+                }
+            },
+            "modules": {
+                "run": {
+                    "args": [
+                        {
+                            "short": "-p",
+                            "long": "--port",
+                            "type": "int",
+                            "help": ["HTTP port"]
+                        }
+                    ]
+                },
+                "add": {
+                    "modules": {
+                        "local": {
+                            "template": "ADD_TEMPLATE"
+                        },
+                        "archive": {
+                            "template": "ADD_TEMPLATE"
+                        },
+                        "git": {
+                            "template": "ADD_TEMPLATE",
+                            "args": [
+                                {
+                                    "short": "-b",
+                                    "long": "--branch",
+                                    "help": ["git branch"]
+                                },
+                                {
+                                    "short": "-u",
+                                    "long": "--remote",
+                                    "help": ["git remote name"]
+                                },
+                                {
+                                    "long": "--auto-update",
+                                    "action": "store_true"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

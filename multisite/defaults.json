@@ -1,0 +1,21 @@
+{
+    "__main__": {
+        "config": "multisite.json",
+        "run": {
+            "port": 8000
+        },
+        "add": {
+            "local": {
+                "name": null
+            },
+            "archive": {
+                "name": null
+            },
+            "git": {
+                "name": null,
+                "branch": "master",
+                "remote": "origin"
+            }
+        }
+    }
+}
