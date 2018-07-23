@@ -5,6 +5,7 @@ import tarfile
 import git
 import string
 import mistune
+import shutil
 
 
 def sanitize(str):
@@ -137,3 +138,35 @@ class Multisite(object):
         if contents is None:
             return self.not_found()
         return 200, contents
+
+    def make_static(self, target_directory='html'):
+        if os.path.isdir(target_directory):
+            shutil.rmtree(target_directory)
+        os.makedirs(target_directory)
+        status, contents = self.homepage()
+        if status != 404:
+            with open('html/index.html', 'w') as f:
+                f.write(contents)
+        for name, site in self.sites.items():
+            dirpath = os.path.join('html', name)
+            for dirpath, dirnames, filenames in os.walk(site['location']):
+                dirpath = dirpath.lstrip('./')
+                if any(d.startswith('.') for d in dirpath.split(os.path.sep)):
+                    continue
+                for filename in filenames:
+                    filename, ext = os.path.splitext(filename)
+                    if ext in ('.html', '.md'):
+                        src = os.path.join(dirpath, filename)
+                        if dirpath != '' and filename == 'index':
+                            dest = os.path.join('html', '{}.html'.format(name))
+                        else:
+                            dest_dir = os.path.join('html', dirpath)
+                            os.makedirs(dest_dir, exist_ok=True)
+                            dest = os.path.join(
+                                dest_dir,
+                                '{}.html'.format(filename)
+                            )
+                        contents = self.page(src)
+                        if contents is not None:
+                            with open(dest, 'w') as f:
+                                f.write(contents)

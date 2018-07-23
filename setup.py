@@ -2,7 +2,7 @@ import setuptools
 
 MAJOR = 0
 MINOR = 1
-PATCH = 1
+PATCH = 2
 VERSION = '{}.{}.{}'.format(MAJOR, MINOR, PATCH)
 
 if __name__ == '__main__':

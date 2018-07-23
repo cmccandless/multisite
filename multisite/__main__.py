@@ -32,7 +32,8 @@ def run(opts):
 def add_local_site(opts):
     site = multisite.Multisite(opts.config)
     if opts.name is None:
-        setattr(opts, 'name', opts.path.basename(opts.source_path))
+        bname = os.path.basename(opts.source_path.rstrip(os.path.sep))
+        setattr(opts, 'name', bname)
     site.add_site(opts.name, opts.source_path, source_type='local')
 
 
@@ -40,7 +41,7 @@ def add_local_site(opts):
 def add_archive_site(opts):
     site = multisite.Multisite(opts.config)
     if opts.name is None:
-        bname = opts.path.basename(opts.source_path)
+        bname = os.path.basename(opts.source_path)
         setattr(opts, 'name', os.path.splitext(bname)[0])
     site.add_site(opts.name, opts.source_path, source_type='archive')
 
@@ -58,6 +59,12 @@ def add_git_site(opts):
         git_branch=opts.branch,
         git_remote=opts.remote
     )
+
+
+@argutil.callable('static')
+def static(opts):
+    site = multisite.Multisite(opts.config)
+    site.make_static(opts.directory)
 
 
 def main():

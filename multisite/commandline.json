@@ -66,6 +66,15 @@
                             ]
                         }
                     }
+                },
+                "static": {
+                    "args": [
+                        {
+                            "short": "-d",
+                            "long": "--directory",
+                            "help": "target directory for static pages"
+                        }
+                    ]
                 }
             }
         }

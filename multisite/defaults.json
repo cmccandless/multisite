@@ -16,6 +16,9 @@
                 "branch": "master",
                 "remote": "origin"
             }
+        },
+        "static": {
+            "directory": "html"
         }
     }
 }
