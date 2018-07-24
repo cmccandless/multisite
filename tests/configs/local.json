@@ -1,0 +1,9 @@
+{
+  "local-site": {
+    "name": "local-site",
+    "source": "local-site/",
+    "location": "local-site/",
+    "source_type": "local",
+    "auto_update": false
+  }
+}

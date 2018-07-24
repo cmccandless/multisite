@@ -7,10 +7,25 @@ python:
 - '3.4'
 - '3.5'
 - '3.6'
+- nightly
 
-before_script: python -m pip install -r requirements.txt
+matrix:
+  # Ignore failures for unstable versions
+  allow_failures:
+    - python: nightly
 
-script: make test
+install:
+  - make init
+  - python -m pip install -e .
+
+before_script:
+  - make lint
+
+script:
+  - make test
+
+after_success:
+  - coveralls
 
 deploy:
   provider: pypi
