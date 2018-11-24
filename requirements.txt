@@ -3,6 +3,6 @@ jsonschema==2.6.0
 GitPython==2.1.11
 mistune==0.8.4
 flake8==3.6.0
-pytest==4.0.0
+pytest==4.0.1
 coveralls>=1.2.0
 requests==2.20.1
