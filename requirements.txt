@@ -4,4 +4,4 @@ mistune==0.8.4
 flake8==3.7.7
 pytest>=4.3.1
 coveralls>=1.2.0
-requests==2.21.0
+requests==2.22.0
